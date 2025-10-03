@@ -1,0 +1,159 @@
+:root{
+  --bg1       :#0f172a;
+  --bg2       :#0b1020;
+  --accent    :#19b4fc;
+  --accent-2  :cyan;
+  --accent-3  :rgba(230,238,248,0.65);
+  --text      :cyan;
+  --glass     :rgba(255,255,255,0.06);
+  --muted     :rgba(230,238,248,0.65);
+}
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: white;
+  background: #0b0f2a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:auto;
+}
+.bacgroud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+/* Card */
+.card{
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  color: white;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 350px;
+  animation: floatGlow 5s ease-in-out infinite;
+}
+
+.logo{display:flex; gap:15px; align-items:center}
+.logo .mark{width:45px; height: 45px; border-radius:10px; background:linear-gradient(135deg,var(--accent-2),var(--accent-2)); display:flex;align-items:center;justify-content:center;font-weight:700}
+h1{margin:18px 0 6px; font-size:17px; color: rgb(58, 223, 248);}
+p.lead{margin:0 0 22px; color:var(--accent-3); font-size:13px}
+.logo img {
+  width: 55px;
+  border-radius: 30%;
+}
+
+form{display:grid; gap:14px}
+.field{position:relative}
+input[type="text"], input[type="password"], input[type="email"]{
+  width:100%; padding:14px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006)); color:var(--text);
+  outline:none; font-size:14px; transition:box-shadow .18s, transform .12s;
+}
+input:focus{box-shadow:0 6px 18px cyan; transform:translateY(-2px)}
+
+/* floating label */
+label.floating{position:absolute; left:12px; top:50%; transform:translateY(-50%); pointer-events:none; transition:all .18s; color:var(--muted); font-size:13px}
+input:not(:placeholder-shown) + label.floating,
+input:focus + label.floating{top:6px; font-size:11px; color:var(--accent-2)}
+
+.pass-wrap{display:flex; align-items:center; gap:8px}
+.show-pass{background:none;border:0;color:var(--muted);cursor:pointer;padding:6px;border-radius:8px}
+
+.row{display:flex; justify-content:space-between; align-items:center}
+.small{font-size:13px; color:var(--muted)}
+
+.btn{
+ padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: rgb(13, 31, 35);
+  color: #0ff;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+  transition: 0.3s;
+  position: relative;
+  transition: transform 0.3s;
+}
+.btn:active{
+  transform:translateY(1px)
+}
+.btn:hover {
+transform: scale(1.05);
+box-shadow: 0 0 20px cyan;
+}
+
+.meta{display:flex; gap:10px; align-items:center}
+.link{color:var(--muted); font-size:13px; text-decoration:none}
+
+/* floating social icons */
+.socials{display:flex; gap:8px}
+.chip{padding:8px 10px; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); font-size:13px}
+
+/* input error animation */
+.shake{animation: shake .48s}
+@keyframes shake{ 10%{transform:translateX(-6px)} 30%{transform:translateX(6px)}50%{transform:translateX(-4px)}70%{transform:translateX(4px)}90%{transform:translateX(-2px)} 100%{transform:translateX(0)} }
+
+/* success overlay */
+.overlay{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.8)); z-index:5; opacity:0; pointer-events:none; transition:opacity .28s}
+.overlay.show{opacity:1; pointer-events:auto}
+.check{
+  display:flex; flex-direction:column; align-items:center; gap:12px; color:var(--text);
+}
+.circle{
+  width:86px; height:86px; border-radius:50%; background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); display:flex; align-items:center; justify-content:center; box-shadow:0 8px 30px rgba(0,0,0,0.4);
+}
+.check svg{width:48px; height:48px}
+
+/* small footer animation */
+.credit{position:absolute; bottom:12px; left:50%; transform:translateX(-50%); font-size:12px; color:rgb(148, 160, 203)}
+
+/* responsive */
+@media (max-width:420px){
+  .card{padding:20px}
+  h1{font-size:18px}
+}
+
+/* Animasi shake saat salah login */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 0 10px rgba(19, 137, 221, 0.621);
+  }
+  50% {
+    transform: translatey(-50px);
+    box-shadow: 0 0 50px aqua;
+  }
+
+}
+.shake {
+  animation: shake 0.5s ease;
+  border: 1px solid red !important;
+}
+.spin {
+      animation: rotate 0.1s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }

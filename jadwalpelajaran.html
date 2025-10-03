@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadwal Pelajaran</title>
+  <style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #0b0f2a;
+  color: white;
+  overflow-x: hidden;
+}
+
+#jadwalPelajaranTable {
+  text-align: center;
+  background: rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 100%;
+  margin: 40px auto;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease-in-out;
+  overflow-x: auto;
+  z-index: 1;
+  position: relative;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+#jadwalPelajaranTable h1 {
+  font-size: 28px;
+  color: darkblue;
+  margin-bottom: 10px;
+}
+#jadwalPelajaranTable p {
+  font-size: 28px;
+  color: magenta;
+  margin-bottom: 10px;
+}
+
+.pelajaran-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: rgba(0,0,0,0.2);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.pelajaran-table th, .pelajaran-table td {
+  padding: 10px;
+  font-size: 14px;
+  color: aqua;
+  border: 1px solid;
+}
+.pelajaran-table th {
+  background: rgba(0,0,0,0.4);
+  color: magenta;
+}
+
+.pelajaran-table tbody tr {
+  opacity: 0;
+  transform: translateY(100%);
+  animation: fadeInUp 2s ease forwards;
+}
+.pelajaran-table tbody tr:nth-child(1) { animation-delay: 0.5s; }
+.pelajaran-table tbody tr:nth-child(2) { animation-delay: 0.9s; }
+.pelajaran-table tbody tr:nth-child(3) { animation-delay: 1.3s; }
+.pelajaran-table tbody tr:nth-child(4) { animation-delay: 1.7s; }
+.pelajaran-table tbody tr:nth-child(5) { animation-delay: 2.1s; }
+.pelajaran-table tbody tr:nth-child(6) { animation-delay: 2.5s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Tabel responsive */
+.pelajaran-table {
+  min-width: 800px; /* biar kolom ga terlalu sempit */
+}
+.backgroud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.credit{
+      position:absolute;
+      bottom:1%; 
+      left:50%; 
+      transform:translateX(-50%); 
+      font-size:12px; 
+      color:rgb(148, 160, 203)
+    }
+  </style>
+</head>
+<body>
+  <canvas id="stars" class="backgroud"></canvas>
+  <section id="jadwalPelajaranTable">
+  <h1>📚 Jadwal Pelajaran XI RPL</h1>
+  <p>Wali Kelas: Siti Fadilah</p>
+
+    <table class="pelajaran-table">
+      <thead>
+      <tr>
+        <th></th>
+        <th>1<br>06:30 07:00</th>
+        <th>2<br>07:00 07:40</th>
+        <th>3<br>07:40 08:15</th>
+        <th>4<br>08:15 08:50</th>
+        <th>5<br>08:50 09:25</th>
+        <th>Istirahat<br>09:25 09:40</th>
+        <th>6<br>09:40 10:15</th>
+        <th>7<br>10:15 10:50</th>
+        <th>8<br>10:50 11:25</th>
+        <th>9<br>11:25 12:00</th>
+        <th>Istirahat<br>12:00 12:30</th>
+        <th>10<br>12:30 13:05</th>
+        <th>11<br>13:05 13:40</th>
+        <th>12<br>13:40 14:15</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+          <td>Senin</td>
+          <td>Upacara</td>
+          <td>PSS</td>
+          <td colspan="3">Bahasa Inggris</td>
+          <td rowspan="5">Istirahat</td>
+          <td colspan="4">Pemerograman WEB</td>
+          <td rowspan="5">Istirahat</td>
+          <td colspan="2">PPKN</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Selasa</td>
+          <td rowspan="3"></td>
+          <td colspan="2">PKK</td>
+          <td colspan="2">Pemerograman ANDROID</td>
+          <td colspan="2">Pemerograman ANDROID</td>
+          <td colspan="2">Basis Data</td>
+          <td colspan="3">Basis Data</td>
+        </tr>
+        <tr>
+          <td>Rabu</td>
+          <td colspan="2">PAI</td>
+          <td colspan="2">Olahraga</td>
+          <td colspan="2">Bahasa Korea</td>
+          <td colspan="2">Sejarah</td>
+          <td colspan="3">Matematika</td>
+        </tr>
+        <tr>
+          <td>Kamis</td>
+          <td colspan="3">PKKTKJ</td>
+          <td>Bahasa Indonesia</td>
+          <td colspan="2">Bahasa Indonesia</td>
+          <td colspan="2">Basis Data</td>
+          <td colspan="2">Basis Data</td>
+          <td>BK</td>
+        </tr>
+        <tr>
+          <td>Jum'at</td>
+          <td>Ruang AKT</td>
+          <td>PSS</td>
+          <td colspan="3">Pemerograman WEB</td>
+          <td colspan="2">Pemerograman WEB</td>
+          <td>BWK</td>
+          <td></td>
+          <td colspan="3"></td>
+        </tr>
+      </tbody>
+    </table>
+</section>
+<footer class="credit">© Rekayasa Perangkat Lunak</footer>
+<script>
+  const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    for (let i = 0; i < 100; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 2,
+            dx: (Math.random() - 0.5) * 0.5,
+            dy: (Math.random() - 0.5) * 0.5
+        });
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "white";
+        stars.forEach(s => {
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fill();
+            s.x += s.dx;
+            s.y += s.dy;
+            if (s.x < 0 || s.x > canvas.width) s.dx *= -1;
+            if (s.y < 0 || s.y > canvas.height) s.dy *= -1;
+        });
+        requestAnimationFrame(drawStars);
+    }
+    drawStars();
+</script>
+</body>
+</html>
