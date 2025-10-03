@@ -26,7 +26,7 @@ function validate(){
 // cek tanggal + jam (6 Okt 2025 jam 09:00)
 function canAccessNow() {
   const now = new Date();
-  const startDate = new Date("2025-10-01T10:00:00"); 
+  const startDate = new Date("2025-10-10T10:00:00"); 
   return now >= startDate;
 }
 
@@ -47,7 +47,7 @@ form.addEventListener('submit', (ev)=>{
 
   if (user.value === validUser && pass.value === validPass) {
     if (!canAccessNow()) {
-      alert("⏰ Belum waktunya BUKA!! Website bisa dibuka mulai 3 Oktober 2025 jam 07:00.");
+      alert("⏰ Belum waktunya BUKA!! Website bisa dibuka mulai 10 Oktober 2025 jam 10:00.");
       return;
     }
 
@@ -129,4 +129,5 @@ const btn = document.getElementById("myBtn");
       setTimeout(() => {
         btn.classList.remove("spin");
       }, 3000);
+
     });
